@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-22",
+  "package_version": "0.1.0.dev0",
+  "validated_runtime_source_commit": "928a6aa0d28885a428305ebf6328240ec27ab5b5",
+  "platform": "Linux x86_64, kernel 5.15.0, glibc 2.35",
+  "python": "3.12.13",
+  "dependencies": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "pyarrow": "26.0.0",
+    "python-dateutil": "3.0.0",
+    "six": "1.17.0",
+    "tzdata": "2026.5"
+  },
+  "clean_wheel_install": true,
+  "tests": {"run": 17, "passed": 17, "failed": 0, "skipped": 0},
+  "test_execution_seconds": 8.52,
+  "skill_creator_validation": "passed",
+  "documentation_links": "passed",
+  "vendored_runtime_hashes": "passed",
+  "resource_package_warnings": 0,
+  "demo": {
+    "kind": "deterministic_worked_example",
+    "model_calls": 0,
+    "turns": 3,
+    "retained_candidate_count": 3,
+    "january_leaders": ["North", "South"],
+    "temporary_february_leaders": ["North", "West"],
+    "temporary_february_total": 260,
+    "candidate_entrants": [],
+    "candidate_exits": [],
+    "restored_january_total": 240
+  },
+  "artifacts": [
+    {
+      "name": "codex_analysis_state-0.1.0.dev0-py3-none-any.whl",
+      "sha256": "c47b252c1164b13b274fc0ac2b7739d1f32fe5bc73536d649bbc25ac7c7e180e"
+    },
+    {
+      "name": "codex_analysis_state-0.1.0.dev0.tar.gz",
+      "sha256": "4ed344deb29174ff77fb3395218461d0a2948f519a0a8cedb9661b143332574d"
+    }
+  ],
+  "not_verified": ["Other Python versions and operating systems", "Live Codex discovery and model-driven use", "Benchmark equivalence to historical experiments"]
+}

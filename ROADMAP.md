@@ -1,12 +1,16 @@
 # Roadmap
 
-## First source release
+## First source preparation — completed
 
 - Extract the data protocol and attributed StateM runtime into an installable package.
 - Provide workspace initialization and a project-scoped skill.
 - Include a small, deterministic example for historical membership and temporary definitions.
 - Validate distribution installation and behavior in a clean environment.
 - Document historical evidence and the limits of this new packaging.
+
+Clean wheel installation, 17 behavioral tests and the deterministic three-turn
+example passed. See [validation](docs/validation.md). Public publication remains
+part of the next stage.
 
 ## Public trial
 
@@ -21,4 +25,5 @@
 - Use untouched tasks and repeated runs; report negative results and cost as well as accuracy.
 - Test specific historical-object and measurement-version hypotheses before adding mechanisms.
 
-These are planned activities, not completed capabilities or promised accuracy gains.
+Public-trial and research items are planned activities, not completed
+capabilities or promised accuracy gains.
