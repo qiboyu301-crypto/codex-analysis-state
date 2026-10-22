@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
+unset PYTHONPATH PYTHONHOME
 
 repo_dir="$(cd "$(dirname "$0")/.." && pwd)"
 validation_dir="$(mktemp -d "${TMPDIR:-/tmp}/analysis-state-validation.XXXXXX")"
