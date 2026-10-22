@@ -39,6 +39,10 @@ the predecessor files and pinned upstream runtime.
 Hashes check artifact identity. Replaying `solve.py` checks fresh execution.
 Required dataset reads check that declared historical tables were loaded.
 Parquet metadata checks row counts, columns, dtypes and associated descriptions.
+Historical data and descriptions are also checked against their original
+published verification receipt before a later turn can select them. Raw files
+and published tables marked `context` cannot be declared as computational
+sources of a retained product.
 
 These checks do not prove that the chosen interpretation is right, that a
 loaded table materially affected the calculation, or that a source declaration

@@ -63,8 +63,9 @@ The helper records actual row count, columns, dtypes, hashes and source
 identities. It binds the description to the effective analysis definitions.
 Use `{ "data_id": "t001_candidates", "usage": "Original group" }` for a
 published source in a later description. Sources must be selected inputs or
-another explicitly retained current-turn product. `context` inputs cannot be
-claimed as computational sources.
+another explicitly retained current-turn product. `context` inputs, including
+raw files, cannot be claimed as computational sources. Historical data and
+description hashes must still match the producing turn's publication receipt.
 
 Retain complete working tables with full numeric precision. Do not save
 multiple display-only copies or resave an unchanged historical set. A temporary

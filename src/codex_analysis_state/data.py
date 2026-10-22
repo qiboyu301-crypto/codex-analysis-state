@@ -173,6 +173,20 @@ def dataset_reference(root, data_id, tid, allow_current=False):
         raise ValueError(f"Dataset content changed: {data_id}")
     if data_id in index and index[data_id] != index_entry(meta, metadata_file):
         raise ValueError(f"Catalog differs from dataset description: {data_id}")
+    if data_id in index:
+        producer = root / "turns" / f"{meta['created_turn']:03}"
+        publication = read(producer / "publication.json")
+        verification_path = producer / "verification.json"
+        if (publication.get("protocol") != PROTOCOL_VERSION
+                or publication.get("turn_id") != meta["created_turn"]
+                or publication.get("verification_sha256") != digest(verification_path)
+                or data_id not in publication["data_ids"]):
+            raise ValueError(f"Published dataset receipt changed: {data_id}")
+        expected = read(verification_path)["outputs"].get(data_id)
+        observed = dict(file=meta["file"], metadata_file=metadata_file,
+                        sha256=actual, metadata_sha256=digest(path))
+        if expected != observed:
+            raise ValueError(f"Published dataset or description changed: {data_id}")
     return dict(kind="dataset", data_id=data_id, file=meta["file"], sha256=actual,
                 metadata_file=metadata_file, metadata_sha256=digest(path),
                 analysis_receipt_file=analysis_file, analysis_receipt_sha256=meta["analysis_receipt_sha256"])
@@ -421,8 +435,8 @@ def source_records(root, raw_root, description, binding, pinned):
         key = reference_key(source)
         if key not in selected and not (key[0] == "data_id" and key[1] in current_ids):
             raise ValueError(f"Source was not selected or retained this turn: {key[1]}")
-        if key[0] == "data_id" and key in selected and selected[key]["role"] == "context":
-            raise ValueError(f"A context dataset cannot be a computational source: {key[1]}")
+        if key in selected and selected[key]["role"] == "context":
+            raise ValueError(f"A context input cannot be a computational source: {key[1]}")
         actual = resolve_reference(root, raw_root, source, tid, allow_current=True)
         result.append({**actual, "usage": source["usage"]})
     return result

@@ -37,7 +37,9 @@ Write `selection.json`:
 
 For first-turn raw analysis, select only raw files. Each input has exactly one
 of `file` and `data_id`. Dataset roles are `data` (default), `historical_result`
-and `context`; the first two must be loaded during replay. A no-input request
+and `context`; the first two must be loaded during replay. Raw inputs can also
+be marked `context` for background, but cannot then be a retained table's
+computational source. A no-input request
 uses `inputs: []` and a nonempty `notes` explanation.
 
 Write `plan.md` with the inherited rules, requested changes, source identities

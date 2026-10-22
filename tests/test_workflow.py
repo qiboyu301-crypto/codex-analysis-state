@@ -158,6 +158,70 @@ class WorkflowTests(unittest.TestCase):
             values.append(data.read(turn / "answer.json")["window"])
         self.assertEqual(values, ["January", "March", "April", "January"])
 
+    def test_published_description_is_fixed_before_next_selection(self):
+        self.prepare()
+        self.finish()
+        path = self.root / "data/t001/candidates.meta.json"
+        description = data.read(path)
+        description["semantics"]["population"] = "February cohort"
+        data.write(path, description)
+        self.prepare(2)
+        with self.assertRaises(StatemError) as caught:
+            workspace.advance(self.root, "solve")
+        self.assertIn("Published dataset or description changed", json.dumps(caught.exception.details))
+        self.assertEqual(workspace.status(self.root)["current"], "inspect")
+
+    def test_rewriting_data_and_its_facts_cannot_replace_a_published_result(self):
+        import pandas as pd
+        self.prepare()
+        self.finish()
+        table = self.root / "data/t001/candidates.parquet"
+        frame = pd.read_parquet(table)
+        frame.loc[frame["region"].eq("North"), "revenue"] = 999
+        frame.to_parquet(table, index=False)
+        path = self.root / "data/t001/candidates.meta.json"
+        description = data.read(path)
+        description["facts"] = data.table_facts(table)
+        data.write(path, description)
+        self.prepare(2)
+        with self.assertRaises(StatemError) as caught:
+            workspace.advance(self.root, "solve")
+        self.assertIn("Published dataset or description changed", json.dumps(caught.exception.details))
+
+    def test_context_raw_input_cannot_be_a_retained_computational_source(self):
+        turn = self.prepare()
+        selection = data.read(turn / "selection.json")
+        selection["inputs"][0]["role"] = "context"
+        data.write(turn / "selection.json", selection)
+        workspace.advance(self.root, "solve")
+        workspace.advance(self.root, "retain")
+        with self.assertRaises(StatemError) as caught:
+            workspace.advance(self.root, "verify")
+        self.assertIn("context input cannot be a computational source", json.dumps(caught.exception.details))
+        self.assertEqual(data.read(self.root / "data_index.json"), {})
+
+    def test_current_turn_dependency_can_be_published_together(self):
+        turn = self.prepare()
+        retention = data.read(turn / "retention.json")
+        retention["keep"].append({"name": "total", "reason": "Retain the aggregate alongside its membership."})
+        data.write(turn / "retention.json", retention)
+        description = {
+            "summary": "January revenue for the complete original group",
+            "sources": [{"data_id": "t001_candidates", "usage": "Complete original candidate revenue"}],
+            "processing_steps": ["Sum candidate revenue"],
+            "semantics": {"grain": "One aggregate row", "population": "All January candidates",
+                          "filters": "No further filters", "metrics": {"revenue": "Sum of January revenue"}},
+            "usage": {"purpose": "Preserve the original total for later comparison", "scope": "standing"},
+        }
+        with (turn / "solve.py").open("a") as stream:
+            stream.write("\ndata.save_dataset(pd.DataFrame({'revenue': [candidates['revenue'].sum()]}), "
+                         f"'total', {description!r})\n")
+        self.finish()
+        index = data.read(self.root / "data_index.json")
+        self.assertEqual(set(index), {"t001_candidates", "t001_total"})
+        source = data.read(self.root / "data/t001/total.meta.json")["sources"][0]
+        self.assertEqual(source["data_id"], "t001_candidates")
+
     def test_cli_operates_from_workspace_subdirectory(self):
         process = subprocess.run([sys.executable, "-m", "codex_analysis_state", "status"],
                                  cwd=self.root / "raw", capture_output=True, text=True, check=True)

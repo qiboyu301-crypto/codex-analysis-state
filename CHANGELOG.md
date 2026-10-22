@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Check historical data and descriptions against their original published
+  verification receipt before reusing them.
+- Reject raw context-only inputs as computational sources, matching the rule
+  already applied to published context-only datasets.
+
 ## 0.1.0.dev0 — source preparation
 
 - Extracted the described-Parquet analysis protocol and pinned StateM runtime.
