@@ -19,6 +19,9 @@ dev = ["build>=1.2", "PyYAML>=6"]
 [project.scripts]
 analysis-state = "codex_analysis_state.cli:main"
 
+[tool.setuptools]
+include-package-data = false
+
 [tool.setuptools.packages.find]
 where = ["src"]
 namespaces = false
