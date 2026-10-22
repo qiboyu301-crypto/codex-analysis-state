@@ -5,7 +5,7 @@ calculations for multi-turn data analysis with Codex CLI.
 
 [中文说明](README.zh-CN.md) · [Quickstart](docs/quickstart.md) ·
 [Method](docs/method.md) · [Historical results](docs/results.md) ·
-[Validation](docs/validation.md)
+[Validation](docs/validation.md) · [Maintainer contributions](docs/maintainer-contributions.md)
 
 When a later request changes a metric or time window, keep track of what should
 change and what should stay fixed. The extension separates the population being
@@ -99,6 +99,14 @@ The first release focuses on tabular, multi-turn analysis. Historical benchmark
 evaluation infrastructure, model gateways and production services are outside
 this package. [Method and architecture](docs/method.md) explain what is enforced
 and what remains an analyst/agent responsibility.
+
+## Maintainer and upstream contributions
+
+Maintained by [qiboyu301-crypto](https://github.com/qiboyu301-crypto). Related
+upstream work includes five AgentScope issue reports, one submitted AgentScope
+fix PR, and two Wren AI SQL-correctness reports. See the
+[contribution record](docs/maintainer-contributions.md) for reproductions,
+community follow-up, and the status of each contribution.
 
 ## Development and attribution
 

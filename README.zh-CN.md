@@ -4,7 +4,7 @@
 
 [English](README.md) · [快速开始](docs/quickstart.md) ·
 [方法说明](docs/method.md) · [历史实验](docs/results.md) ·
-[验证记录](docs/validation.md)
+[验证记录](docs/validation.md) · [维护者开源贡献](docs/maintainer-contributions.md)
 
 当用户不断改变分析范围、指标和比较方式时，明确记录哪些定义继续沿用、
 哪些修改只对本轮生效，以及应该读取哪个历史结果。扩展分别处理分析对象、
@@ -18,7 +18,7 @@
 | 实验 | 优化前 | 优化后 | 口径 |
 |---|---:|---:|---|
 | Netflix task2：Native 与分析扩展对照 | 13/34（38.24%） | 27/34（79.41%） | 单任务、每组一次运行，计算预算未对齐 |
-| Netflix task2：开发流程迭代 | 1/34（2.94%） | 29/34（85.29%） | 参考知情的同题开发调优 |
+| Netflix task2：开发流程迭代 | 1/34（2.94%） | 29/34（85.29%） | 开发时参考了任务答案与评分 |
 
 两组结果来自历史冻结工作流。本次独立打包版本尚未经过等价性评测；同题开发
 成绩也不代表独立留出任务成绩。更广范围实验存在收益与退化，完整口径见
@@ -81,6 +81,11 @@ Skill 放到工作区的 `.agents/skills/analysis-state`。在 Codex 中输入�
 
 `bash scripts/validate_release.sh` 在干净环境中构建并安装 wheel、运行行为测试
 和三轮示例，不调用模型。当前验证状态见 [validation.md](docs/validation.md)。
+
+维护者 [qiboyu301-crypto](https://github.com/qiboyu301-crypto) 还向 AgentScope
+提交了 5 个 issue 和 1 个修复 PR，向 Wren AI 提交了 2 个 SQL 正确性问题。
+[维护者开源贡献](docs/maintainer-contributions.md) 汇总了复现材料、社区反馈和
+各项处理状态。
 
 代码采用 Apache-2.0。StateM 与研究代码来源、冻结提交和适配改动见
 [NOTICE](NOTICE) 和 [PROVENANCE.json](PROVENANCE.json)。欢迎提供可复现的问题
