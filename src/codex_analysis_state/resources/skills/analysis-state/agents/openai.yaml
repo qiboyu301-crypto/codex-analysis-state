@@ -1,0 +1,4 @@
+interface:
+  display_name: "Analysis State"
+  short_description: "Keep analysis definitions and historical results aligned"
+  default_prompt: "Use $analysis-state to analyze my tables across successive requests while preserving the intended definitions and historical results."

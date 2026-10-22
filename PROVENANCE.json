@@ -1,0 +1,54 @@
+{
+  "source_repository": "https://github.com/qiboyu301-crypto/longDS-codex",
+  "source_commit": "21332d428261024bada534404596d68e0e6f4458",
+  "upstream_statem": {
+    "url": "https://github.com/henryqin1997/statem",
+    "commit": "8c3309ad3e7b265e23a4db011ff98c5f6a132bd8",
+    "license": "Apache-2.0"
+  },
+  "files": [
+    {
+      "source_path": "LICENSE",
+      "destination": "LICENSE",
+      "source_sha256": "8e4edfcb568a9844fe2907cc1590b3527bfc086ca29c0edc1cccb2d39c2a7dda",
+      "role": "license"
+    },
+    {
+      "source_path": "vendor/statem/statem/core.py",
+      "destination": "src/codex_analysis_state/_vendor/statem/core.py",
+      "source_sha256": "657a4bcbcf083a43c492265d8be49d60c4cb2d74fa5ad029aed6f022fb9c1089",
+      "role": "unmodified StateM runtime"
+    },
+    {
+      "source_path": "vendor/statem/statem/miniyaml.py",
+      "destination": "src/codex_analysis_state/_vendor/statem/miniyaml.py",
+      "source_sha256": "6ea48da689322ba66dea5b5cb7002a09d8693bca017984b9cdc2cb19e592225f",
+      "role": "unmodified StateM runtime"
+    },
+    {
+      "source_path": "vendor/statem/statem/__init__.py",
+      "destination": "src/codex_analysis_state/_vendor/statem/__init__.py",
+      "source_sha256": "9f9d5fa6378a6c0d034b2118ec9b075ad38ba2916eed284ff235b95ebebdcaf6",
+      "role": "unmodified StateM runtime"
+    },
+    {
+      "source_path": "vendor/statem/LICENSE",
+      "destination": "src/codex_analysis_state/_vendor/statem/LICENSE",
+      "source_sha256": "8e4edfcb568a9844fe2907cc1590b3527bfc086ca29c0edc1cccb2d39c2a7dda",
+      "role": "upstream license"
+    },
+    {
+      "source_path": "src/longds_codex/statem_parquet/parquet_data.py",
+      "destination": "src/codex_analysis_state/data.py",
+      "source_sha256": "204ca9bc1494772e7f6d5f03f96b6067c0b46b5c5f5f4288e5be3e5ac3342a0c",
+      "role": "analysis protocol; portability changes applied in this repository"
+    },
+    {
+      "source_path": "src/longds_codex/statem_parquet/references/reusable-data.md",
+      "destination": "src/codex_analysis_state/resources/skills/analysis-state/references/reusable-data.md",
+      "source_sha256": "22568c53d63cea346e08da80b4f0afc3340273a647346eb113180c96a4dd6dea",
+      "role": "analysis protocol reference; portable paths and commands adapted"
+    }
+  ],
+  "extraction_date": "2026-10-22"
+}

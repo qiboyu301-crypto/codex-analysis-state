@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codex-analysis-state"
+version = "0.1.0.dev0"
+description = "Explicit analysis state and replayable data workflows for Codex CLI"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{name = "qiboyu301-crypto"}]
+dependencies = ["pandas>=2.2,<4", "pyarrow>=16"]
+
+[project.optional-dependencies]
+dev = ["build>=1.2", "PyYAML>=6"]
+
+[project.scripts]
+analysis-state = "codex_analysis_state.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+namespaces = false
+
+[tool.setuptools.package-data]
+codex_analysis_state = ["resources/**/*.md", "resources/**/*.yaml", "resources/**/*.json", "resources/**/*.csv", "resources/**/*.py", "_vendor/statem/LICENSE"]

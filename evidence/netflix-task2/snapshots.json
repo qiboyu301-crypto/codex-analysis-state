@@ -1,0 +1,60 @@
+{
+  "status": "curated historical summary; full original artifacts are not bundled",
+  "task": "business/netflix_movies_and_tv_shows/task2",
+  "comparison": {
+    "native_correct": 13,
+    "extension_correct": 27,
+    "turns_per_arm": 34,
+    "actor": "gpt-6-luna",
+    "actor_effort": "xhigh",
+    "judge": "ocg/deepseek-v4.1-flash",
+    "judge_effort": "max",
+    "repeats_per_arm": 1,
+    "compute_budgets_aligned": false,
+    "answer_source": "agent_final",
+    "limitations": [
+      "Dependent turns within a single task",
+      "Known development task",
+      "Some diagnostic judgments changed during formal grading"
+    ]
+  },
+  "development": {
+    "initial_correct": 1,
+    "adopted_correct": 29,
+    "turns_per_version": 34,
+    "initial_is_native": false,
+    "reference_informed": true,
+    "actor": "ocg/deepseek-v4.1-flash",
+    "actor_effort": "max",
+    "judge": "ocg/deepseek-v4.1-flash",
+    "judge_effort": "max",
+    "adopted_actor_commit": "54bf4fbeb8852286ba54021df96b114602253fd1",
+    "run_id": "netflix-task2-parquet-bindings-ocg-flash-max-r1-20261009",
+    "answer_source": "agent_final",
+    "same_answer_secondary_regrade_correct": 30,
+    "secondary_regrade_replaces_primary": false
+  },
+  "standalone_package_benchmarked": false,
+  "sources": [
+    {
+      "path_in_research_workspace": "reports/netflix-task2-validated-20261010/RESULT.md",
+      "sha256": "60c9769cfc0bd117daa3cc27aca51bbba63d7c8d445f84ad0a4b3eaae8478e38"
+    },
+    {
+      "path_in_research_workspace": "reports/netflix-task2-validated-20261010/evaluation-integrity-note.md",
+      "sha256": "966adfcf3415d305a46ee1bbba3b7907f9a2ba8e6092ad4dee6b3bc69fe73a96"
+    },
+    {
+      "path_in_research_workspace": "reports/netflix-task2-validated-20261010/source/provenance.json",
+      "sha256": "6dc55bfaff32a996770e1120575cb8e827febf76f4c073e9c403e96b7dc2c82d"
+    },
+    {
+      "path_in_research_workspace": "reports/netflix-task2-statem-luna-20261012/source/comparison.md",
+      "sha256": "c0f1d72fe6c2bf8e5551aa0240159a0137b596dd0d2de41cd636e2ac877fe22f"
+    },
+    {
+      "path_in_research_workspace": "reports/netflix-task2-statem-luna-20261012/source/evaluation-summary.json",
+      "sha256": "9bd238c46e1baa64a9cd8ceb35af76ee21271f7119dc4c4431fdbe080f51e82e"
+    }
+  ]
+}

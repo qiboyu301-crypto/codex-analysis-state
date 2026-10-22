@@ -1,0 +1,27 @@
+Codex Analysis State
+Copyright 2026 qiboyu301-crypto and contributors
+
+This distribution includes unmodified StateM runtime files in
+src/codex_analysis_state/_vendor/statem. StateM is authored by its upstream
+contributors and distributed under Apache License 2.0.
+Upstream: https://github.com/henryqin1997/statem
+Pinned upstream commit: 8c3309ad3e7b265e23a4db011ff98c5f6a132bd8
+The upstream license is included alongside the vendored files.
+
+The analysis data protocol and retained-data guidance are adapted from the
+longDS-codex research implementation maintained by qiboyu301-crypto.
+Origin: https://github.com/qiboyu301-crypto/longDS-codex
+Source commit: 21332d428261024bada534404596d68e0e6f4458
+That implementation builds on StateM. The StateM runtime, its original design,
+and the LongDS benchmark are not original contributions of this package.
+
+Changes in this distribution: portable workspace-relative raw input identities;
+selected raw-path resolution; standalone turn lifecycle and publication command;
+project-scoped Codex skill; concise protocol guidance; synthetic example and
+behavioral release checks. Source file hashes are listed in PROVENANCE.json.
+
+The six-row sales fixture and worked-example scripts were created for this
+package and are distributed under its Apache-2.0 license. No third-party
+benchmark dataset or reference solution is included.
+
+Codex and OpenAI names describe compatibility. This is an independent project.
