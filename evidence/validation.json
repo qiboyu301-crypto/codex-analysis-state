@@ -41,5 +41,23 @@
       "sha256": "4ed344deb29174ff77fb3395218461d0a2948f519a0a8cedb9661b143332574d"
     }
   ],
-  "not_verified": ["Other Python versions and operating systems", "Live Codex discovery and model-driven use", "Benchmark equivalence to historical experiments"]
+  "not_verified": ["Other Python versions and operating systems", "Live Codex discovery and model-driven use", "Benchmark equivalence to historical experiments"],
+  "review_fix_validation": {
+    "date": "2026-10-22",
+    "validated_runtime_source_commit": "77064fa26967691d8f752cd29824affb3fddbb86",
+    "python": "3.12.13",
+    "environment": "Same platform and dependency versions as the initial validation",
+    "clean_wheel_install": true,
+    "tests": {"run": 21, "passed": 21, "failed": 0, "skipped": 0},
+    "test_execution_seconds": 13.798,
+    "three_turn_demo": "passed",
+    "model_calls": 0,
+    "resource_package_warnings": 0,
+    "baseline_issues_reproduced": ["Modified published metadata accepted by later selection", "Raw context-only input accepted as a retained computational source"],
+    "new_regressions": ["Reject changed published descriptions", "Reject coordinated data and metadata-facts rewrites", "Reject context-only raw computational sources", "Allow same-turn dependent products to publish together"],
+    "artifacts": [
+      {"name": "codex_analysis_state-0.1.0.dev0-py3-none-any.whl", "sha256": "e10b5e31b14b63869098faf27f956abe8a0766e4619787047b1262874ee70547"},
+      {"name": "codex_analysis_state-0.1.0.dev0.tar.gz", "sha256": "b0379cb28b188348054d245161d4e3c5acefb9be371a4b26a44244ab75a74c84"}
+    ]
+  }
 }

@@ -6,6 +6,8 @@
   verification receipt before reusing them.
 - Reject raw context-only inputs as computational sources, matching the rule
   already applied to published context-only datasets.
+- Verified both review fixes with a clean wheel install, 21 behavioral tests
+  and the three-turn CLI example on Linux/Python 3.12.
 
 ## 0.1.0.dev0 — source preparation
 

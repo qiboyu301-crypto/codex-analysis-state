@@ -1,9 +1,27 @@
 # Release validation
 
-Clean-environment validation passed on **2026-10-22** for runtime/build source
+## Review fixes — 2026-10-22
+
+Runtime commit `77064fa26967691d8f752cd29824affb3fddbb86` passed clean wheel
+installation, **21 behavioral tests** (0 failures, 0 skipped), and the three-turn
+CLI example. The environment matches the initial validation below. There were
+no resource-package declaration warnings and no model calls.
+
+Four new regressions cover changed published descriptions, data rewrites with
+updated metadata facts, raw context-only inputs used as computational sources,
+and legitimate same-turn dependencies published together. The first two review
+issues were reproduced against the initial installed package before fixing them.
+
+The `review_fix_validation` record in
+[evidence/validation.json](../evidence/validation.json) preserves this result and
+artifact hashes alongside the original source-preparation evidence. Validation
+applies to the recorded source commit, not automatically to later changes.
+
+## Initial source preparation — 2026-10-22
+
+Clean-environment validation passed for runtime/build source
 commit `928a6aa0d28885a428305ebf6328240ec27ab5b5`, version `0.1.0.dev0`.
-Subsequent source-preparation commits only record these results in documentation
-and evidence; the validated runtime and packaging sources are unchanged.
+The original results below are retained as a historical validation snapshot.
 
 | Check | Result |
 |---|---|
